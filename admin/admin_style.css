@@ -1,0 +1,290 @@
+:root {
+    --admin-primary: #0f172a;
+    --admin-secondary: #1e293b;
+    --admin-accent: #3b82f6;
+    --admin-accent-hover: #2563eb;
+    --admin-success: #10b981;
+    --admin-danger: #ef4444;
+    --admin-warning: #f59e0b;
+    --admin-text-main: #f1f5f9;
+    --admin-text-muted: #94a3b8;
+    --admin-bg-body: #f8fafc;
+    --admin-card-bg: #ffffff;
+    --admin-sidebar-width: 280px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--admin-bg-body);
+    margin: 0;
+    color: #334155;
+    display: flex;
+}
+
+/* Sidebar Styling */
+.admin-sidebar {
+    width: var(--admin-sidebar-width);
+    height: 100vh;
+    background-color: var(--admin-primary);
+    color: var(--admin-text-main);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.admin-sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.admin-sidebar-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-nav {
+    flex: 1;
+    padding: 1.5rem 0.75rem;
+    overflow-y: auto;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-item:hover {
+    background-color: rgba(255,255,255,0.05);
+    color: var(--admin-text-main);
+}
+
+.nav-item.active {
+    background-color: var(--admin-accent);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.nav-item svg {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Main Content Area */
+.admin-main {
+    margin-left: var(--admin-sidebar-width);
+    flex: 1;
+    padding: 2.5rem;
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 400px);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.admin-header h1 {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: var(--admin-primary);
+    margin: 0;
+}
+
+/* Dashboard Cards */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.admin-card {
+    background: var(--admin-card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.admin-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: var(--admin-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Forms Styling */
+.admin-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.admin-input, .admin-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #f8fafc;
+    transition: all 0.2s;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.admin-input:focus, .admin-textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.admin-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-btn-primary {
+    background-color: var(--admin-accent);
+    color: #ffffff;
+}
+
+.admin-btn-primary:hover {
+    background-color: var(--admin-accent-hover);
+    transform: translateY(-1px);
+}
+
+.admin-btn-danger {
+    background-color: var(--admin-danger);
+    color: #ffffff;
+}
+
+.admin-btn-danger:hover {
+    background-color: #dc2626;
+}
+
+/* Tables Styling */
+.admin-table-container {
+    overflow-x: auto;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    margin-top: 1rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background-color: #f8fafc;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    color: #64748b;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+.admin-table tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Success/Error Messages */
+.admin-alert {
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+
+.admin-alert-success {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #d1fae5;
+}
+
+.admin-alert-error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fee2e2;
+}
+
+/* Micro-animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
