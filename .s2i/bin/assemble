@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+/usr/libexec/s2i/assemble
+
+cat >> /etc/php-fpm.d/www.conf <<'PHPFPM'
+
+; PRDD database environment variables
+env[DB_HOST] = $DB_HOST
+env[DB_USER] = $DB_USER
+env[DB_NAME] = $DB_NAME
+env[DB_PASSWORD] = $DB_PASSWORD
+PHPFPM
